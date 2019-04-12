@@ -10,7 +10,7 @@
 
 - Andrew *"Roketsu"* Roska (https://github.com/Roketsu86)
 
-- Christopher *"Old Spice"* Morton (https://github.com/cmorto02)
+- Christopher *"Secret Squirrel"* Morton (https://github.com/cmorto02)
 
 - Ian *"Hype Man"* Gifford (https://github.com/IanGifford261)
 
