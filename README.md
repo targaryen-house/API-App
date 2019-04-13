@@ -160,6 +160,21 @@
       - Ensure that given a trail ID the API can receive updates to the conditions field
       - Ensure that the conditions data is posted to the API database
 
+### Database Entity Relationship Diagram(ERD)
+
+Our API will connect to a SQL database with two tables.  The first table will store locally cached data for all hiking trails in our system, including:
+- Trail Name
+- Trail Head Latitude and Longitude
+- Trail Tail Latitude and Longitude (If present)
+- GeoMap URL
+- Trail Difficulty
+- Trail Details
+- Trail Conditions
+
+The second table will store User Ratings.  Each user will be be able to rate a trail on a scale of 1 - 5, and the API will store all individual ratings as well as one aggregate score for each trail.
+
+![Database ERD Diagram](https://github.com/targaryen-house/API-App/tree/master/assets/API_ERD.png)
+
 ### API Endpoints and Call/Response Sample ###
 
 - Example call:
