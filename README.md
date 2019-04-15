@@ -2,21 +2,20 @@
 
 # --------UNDER DEVELOPMENT-------- #
 
-## Switchback ##
-
-**"slogan here"**
+## **["Venture Into The Known"](https://switchback.azurewebsites.net/)**
 
 ## Developers ##
 
-- Andrew *"Roketsu"* Roska (https://github.com/Roketsu86)
+- [Andrew *"Roketsu"* Roska](https://github.com/Roketsu86)
 
-- Christopher *"Secret Squirrel"* Morton (https://github.com/cmorto02)
+- [Christopher *"Secret Squirrel"* Morton](https://github.com/cmorto02)
 
-- Ian *"Hype Man"* Gifford (https://github.com/IanGifford261)
+- [Ian *"Hype Man"* Gifford](https://github.com/IanGifford261)
 
-- Michael *"The Wizard"* Kelly (https://github.com/Michael-S-Kelly)
+- [Michael *"The Wizard"* Kelly](https://github.com/Michael-S-Kelly)
 
-- Tanner *"SKNY-TannMann"* Percival (https://github.com/Tanner253)
+- [Tanner *"SKNY-TannMann"* Percival](https://github.com/Tanner253)
+
 
 ## About Switchback ##
 ### Version 1.0 ###
