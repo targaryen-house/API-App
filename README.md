@@ -173,7 +173,7 @@ Our API will connect to a SQL database with two tables.  The first table will st
 
 The second table will store User Ratings.  Each user will be be able to rate a trail on a scale of 1 - 5, and the API will store all individual ratings as well as one aggregate score for each trail.
 
-![Database ERD Diagram](https://github.com/targaryen-house/API-App/blob/dev-branch/Assets/API_ERD.png)
+![Database ERD Diagram](https://github.com/targaryen-house/API-App/tree/master/assets/API_ERD.png)
 
 ### API Endpoints and Call/Response Sample ###
 
