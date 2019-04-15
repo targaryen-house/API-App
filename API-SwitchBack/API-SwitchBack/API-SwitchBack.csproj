@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RootNamespace>API_SwitchBack</RootNamespace>
+    <UserSecretsId>b4bd5e18-2f01-40b9-bbf6-fda1e870f1f1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Interfaces\" />
-    <Folder Include="Models\Services\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
