@@ -37,6 +37,9 @@ namespace Switchback
 
             services.AddDbContext<SwitchbackAPIDbContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
+            //DefaultConnection
+            //ProductionConnection
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
