@@ -7,6 +7,6 @@ namespace API_SwitchBack.Models.Interfaces
 {
     interface IGetTrails
     {
-        void CreateTrailsSearch(string url);
+        void CreateTrailsSearch(float latitude, float longitude);
     }
 }

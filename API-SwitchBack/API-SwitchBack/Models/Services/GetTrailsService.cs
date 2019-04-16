@@ -14,8 +14,9 @@ namespace API_SwitchBack.Models.Services
     public class GetTrailsService : IGetTrails
 
     {
-        public void CreateTrailsSearch(string url)
+        public void CreateTrailsSearch(float latitude,float longitude)
         {
+            string url = $"https://www.hikingproject.com/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
             WebRequest requestData = WebRequest.Create(url);
             requestData.Method = "GET";
             HttpWebResponse responseObj = null;

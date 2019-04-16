@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace API_SwitchBack.Models
 {
-    public class Rootobject
+    public class Rootobject 
     {
+        
         public Trail[] trails { get; set; }
         public int success { get; set; }
     }
