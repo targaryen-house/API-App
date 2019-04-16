@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API_SwitchBack.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using API_SwitchBack.Controllers;
+using API_SwitchBack.Models;
 
 namespace API_SwitchBack.Data
 {
@@ -11,39 +15,24 @@ namespace API_SwitchBack.Data
     [ApiController]
     public class GetTrailsDataController : ControllerBase
     {
-
-        public class Rootobject
+        private SwitchbackAPIDbContext _context;
+        private readonly IConfiguration Configuration;
+        public GetTrailsDataController(SwitchbackAPIDbContext context, IConfiguration configuration)
         {
-            public Trail[] trails { get; set; }
-            public int success { get; set; }
+            _context = context;
+            Configuration = configuration;
         }
 
-        public class Trail
+        [HttpGet]
+        public IActionResult Create(float longitude, float latitude)
         {
-            public int id { get; set; }
-            public string name { get; set; }
-            public string type { get; set; }
-            public string summary { get; set; }
-            public string difficulty { get; set; }
-            public float stars { get; set; }
-            public int starVotes { get; set; }
-            public string location { get; set; }
-            public string url { get; set; }
-            public string imgSqSmall { get; set; }
-            public string imgSmall { get; set; }
-            public string imgSmallMed { get; set; }
-            public string imgMedium { get; set; }
-            public float length { get; set; }
-            public int ascent { get; set; }
-            public int descent { get; set; }
-            public int high { get; set; }
-            public int low { get; set; }
-            public float longitude { get; set; }
-            public float latitude { get; set; }
-            public string conditionStatus { get; set; }
-            public string conditionDetails { get; set; }
-            public string conditionDate { get; set; }
+            int maxResults = 100;
+            string http = "https://www.hikingproject.com/data";
+            string url = $"{http}/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
+            return Rootobject;
         }
+
+        // https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee
 
     }
 }

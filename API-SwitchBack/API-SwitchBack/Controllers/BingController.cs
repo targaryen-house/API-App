@@ -24,14 +24,13 @@ namespace API_SwitchBack.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create(string query)
+        public void Create(string query)
         {
             int maxResults = 100;
             string http = "http";
             string url = $"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BingAPIKEY"]}";
             Bing bingsearch = new Bing(url);
             bingsearch.LocationName = query;
-            return View();
         }
     }
 }
