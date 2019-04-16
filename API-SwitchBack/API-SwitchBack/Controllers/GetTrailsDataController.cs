@@ -29,7 +29,9 @@ namespace API_SwitchBack.Controllers
             int maxResults = 100;
             string http = "https://www.hikingproject.com/data";
             string url = $"{http}/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
-            return Rootobject;
+            //TODO - FIX RETURN TYPE
+            //return Rootobject;
+            return null;
         }
     }
 }
