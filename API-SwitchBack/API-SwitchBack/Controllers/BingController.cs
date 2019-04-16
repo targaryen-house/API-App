@@ -27,7 +27,7 @@ namespace API_SwitchBack.Controllers
             Configuration = configuration;
         }
 
-        [HttpGet]
+        [HttpGet("api/query")]
         public async void CreateBing(string query)
         {
             
