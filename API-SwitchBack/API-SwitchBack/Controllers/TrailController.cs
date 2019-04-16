@@ -60,15 +60,15 @@ namespace API_SwitchBack.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Trail trail)
         {
-            if (trail.id <= 0)
+            if (trail.ID <= 0)
             {
                 await _trail.AddTrail(trail);
             }
             else
             {
-                await Put(trail.id, trail);
+                await Put(trail.ID, trail);
             }
-            return RedirectToAction("Get", new { id = trail.id });
+            return RedirectToAction("Get", new { id = trail.ID });
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace API_SwitchBack.Controllers
             {
                 await Post(trailInfo);
             }
-            return RedirectToAction("Get", new { id = trailInfo.id });
+            return RedirectToAction("Get", new { id = trailInfo.ID });
         }
 
         /// <summary>
