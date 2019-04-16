@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using API_SwitchBack.Controllers;
 using API_SwitchBack.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace API_SwitchBack.Controllers
 {
@@ -24,13 +26,25 @@ namespace API_SwitchBack.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create(float longitude, float latitude)
+        public async Task<IActionResult> Create(float longitude, float latitude)
         {
-            int maxResults = 100;
-            string http = "https://www.hikingproject.com/data";
-            string url = $"{http}/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
-            //TODO - FIX RETURN TYPE
-            //return Rootobject;
+            //string http = "https://www.hikingproject.com/data";
+            //string url = $"{http}/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri("https://www.hikingproject.com");
+                var response = await client.GetAsync($"https://www.hikingproject.com/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee");
+                response.EnsureSuccessStatusCode();
+
+                var stringResult = await response.Content.ReadAsStringAsync();
+                Rootobject rawData = JsonConvert.DeserializeObject<Rootobject>(stringResult);
+                
+
+
+
+            }
+
             return null;
         }
     }
