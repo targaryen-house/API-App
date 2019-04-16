@@ -37,7 +37,7 @@ namespace API_SwitchBack.Controllers
             {
 
                 client.BaseAddress = new Uri("https://www.hikingproject.com");
-                var response = await client.GetAsync($"https://www.hikingproject.com/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee");
+                var response = await client.GetAsync($"https://www.hikingproject.com/data/get-trails?lat=47.6062&lon=-122.3321&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee");
                 response.EnsureSuccessStatusCode();
 
                 var stringResult = await response.Content.ReadAsStringAsync();
@@ -80,7 +80,7 @@ namespace API_SwitchBack.Controllers
 
             }
 
-            return null;
+           return null;
         }
     }
 }

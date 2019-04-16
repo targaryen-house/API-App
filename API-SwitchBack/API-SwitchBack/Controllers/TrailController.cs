@@ -89,7 +89,7 @@ namespace API_SwitchBack.Controllers
             {
                 await Post(trailInfo);
             }
-            return RedirectToAction("Get", new { id = trailInfo.id });
+            return RedirectToAction("Get", new { id = trailInfo.ID });
         }
 
         /// <summary>

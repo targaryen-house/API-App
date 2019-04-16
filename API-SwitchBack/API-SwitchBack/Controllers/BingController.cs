@@ -28,8 +28,8 @@ namespace API_SwitchBack.Controllers
             Configuration = configuration;
         }
 
-        [HttpGet("api/query")]
-        public async void CreateBing(string query)
+        [HttpGet("{query}")]
+        public async void Get(string query)
         {
             
             int maxResults = 100;
@@ -40,7 +40,7 @@ namespace API_SwitchBack.Controllers
             {
                 
                     client.BaseAddress = new Uri("http://dev.virtualearth.net");
-                    var response = await client.GetAsync($"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BingAPIKEY"]}");
+                    var response = await client.GetAsync($"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BINGAPIKEY"]}");
                     response.EnsureSuccessStatusCode();
 
                     var stringResult = await response.Content.ReadAsStringAsync();
