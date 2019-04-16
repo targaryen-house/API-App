@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using API_SwitchBack.Data;
-//using API_SwitchBack.Models.Interfaces;
-//using API_SwitchBack.Models.Service;
+using API_SwitchBack.Models.Interfaces;
+using API_SwitchBack.Models.Service;
 
 using System;
 using System.Collections.Generic;
@@ -37,7 +37,7 @@ namespace API_SwitchBack
 
 
             services.AddDbContext<SwitchbackAPIDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:ProdutionConnection"]));
 
             //DefaultConnection
             //ProdutionConnection
