@@ -10,7 +10,6 @@ namespace API_SwitchBack.Data
 
     public class SwitchbackAPIDbContext : DbContext
     {
-      
         public DbSet<Trail> Trail { get; set; }
         public DbSet<UserRatings> UserRatings { get; set; }
 

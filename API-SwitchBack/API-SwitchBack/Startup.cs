@@ -37,7 +37,7 @@ namespace API_SwitchBack
 
 
             services.AddDbContext<SwitchbackAPIDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:ProdutionConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             //DefaultConnection
             //ProdutionConnection
