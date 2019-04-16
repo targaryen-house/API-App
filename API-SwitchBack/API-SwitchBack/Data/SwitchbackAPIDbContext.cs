@@ -10,7 +10,13 @@ namespace API_SwitchBack.Data
 
     public class SwitchbackAPIDbContext : DbContext
     {
-        //public DbSet<SwitchbackAPIDbContext> APIController { get; set; }
+        private SwitchbackAPIDbContext _context;
+
+        public SwitchbackAPIDbContext(SwitchbackAPIDbContext context)
+        {
+            _context = context;
+        }
+        public DbSet<SwitchbackAPIDbContext> APIController { get; set; }
         public DbSet<Trail> Trail { get; set; }
         public DbSet<UserRatings> UserRatings { get; set; }
 
