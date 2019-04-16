@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using API_SwitchBack.Controllers;
 using API_SwitchBack.Models;
+using API_SwitchBack.Models.Interfaces;
+using System.Net.Http;
+using Newtonsoft.Json;
+using static API_SwitchBack.Models.Bing;
 
 namespace API_SwitchBack.Controllers
 {
@@ -15,23 +19,37 @@ namespace API_SwitchBack.Controllers
     [ApiController]
     public class BingController : Controller
     {
-        private SwitchbackAPIDbContext _context;
+        private IBingManager _context;
         private readonly IConfiguration Configuration;
-        public BingController(SwitchbackAPIDbContext context, IConfiguration configuration)
+        public BingController(IBingManager context, IConfiguration configuration)
         {
             _context = context;
             Configuration = configuration;
         }
 
         [HttpGet]
-        public IActionResult Create(string query)
+        public async void CreateBing(string query)
         {
+            
             int maxResults = 100;
             string http = "http";
             string url = $"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BingAPIKEY"]}";
-            Bing bingsearch = new Bing(url);
-            bingsearch.LocationName = query;
-            return View();
-        }
+            _context.CreateBingSearch(url);
+            using (var client = new HttpClient())
+            {
+                
+                    client.BaseAddress = new Uri("http://dev.virtualearth.net");
+                    var response = await client.GetAsync($"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BingAPIKEY"]}");
+                    response.EnsureSuccessStatusCode();
+
+                    var stringResult = await response.Content.ReadAsStringAsync();
+                    BingRootobject rawData = JsonConvert.DeserializeObject<BingRootobject>(stringResult);
+                    var coords = rawData.resourceSets[0].resources[0].point.coordinates;
+
+                
+              
+            }
+
+        } 
     }
 }
