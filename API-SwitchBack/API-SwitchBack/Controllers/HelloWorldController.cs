@@ -9,8 +9,9 @@ namespace API_SwitchBack.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class APIController : ControllerBase
+    public class HelloWorldController : ControllerBase
     {
+        [HttpGet]
         public ActionResult<string> Get()
         {
             return "Hello World";
