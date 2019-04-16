@@ -35,6 +35,7 @@ namespace API_SwitchBack
         {
             services.AddMvc();
 
+
             services.AddDbContext<SwitchbackAPIDbContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 

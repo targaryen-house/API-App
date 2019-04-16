@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace API_SwitchBack.Data
 {
+
     public class SwitchbackAPIDbContext : DbContext
     {
         //public DbSet<SwitchbackAPIDbContext> APIController { get; set; }
@@ -22,6 +23,7 @@ namespace API_SwitchBack.Data
 
         }
         
+
 
     }
 }
