@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using API_SwitchBack.Controllers;
+using API_SwitchBack.Models;
 
 namespace API_SwitchBack.Controllers
 {
@@ -23,11 +24,14 @@ namespace API_SwitchBack.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetSearch(string query)
+        public IActionResult Create(string query)
         {
             int maxResults = 100;
             string http = "http";
-            string url = $"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key=["BingAPIKEY"]";
+            string url = $"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BingAPIKEY"]}";
+            Bing bingsearch = new Bing(url);
+            bingsearch.LocationName = query;
+            return View();
         }
     }
 }
