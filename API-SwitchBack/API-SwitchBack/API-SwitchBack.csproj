@@ -4,7 +4,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RootNamespace>API_SwitchBack</RootNamespace>
-    <UserSecretsId>b4bd5e18-2f01-40b9-bbf6-fda1e870f1f1</UserSecretsId>
+
+    <UserSecretsId>4363055b-2644-4d0a-b73f-d3f153ac4d23</UserSecretsId>
+
   </PropertyGroup>
 
   <ItemGroup>
