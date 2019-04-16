@@ -10,6 +10,8 @@ using API_SwitchBack.Controllers;
 using API_SwitchBack.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 
 namespace API_SwitchBack.Controllers
 {
@@ -39,6 +41,38 @@ namespace API_SwitchBack.Controllers
 
                 var stringResult = await response.Content.ReadAsStringAsync();
                 Rootobject rawData = JsonConvert.DeserializeObject<Rootobject>(stringResult);
+                foreach (var value in rawData.trails)
+                {
+                    _context.Add(
+                    new Trail
+                    {
+                        ID = value.ID,
+                        Name =  value.Name,
+                        Type = value.Type,
+                        Summary = value.Summary,
+                        Difficulty = value.Difficulty,
+                        Stars =  value.Stars,
+                        StarVotes = value.StarVotes,
+                        Location=  value.Location,
+                        Url = value.Url,
+                        ImgSqSmall = value.ImgSqSmall,
+                        ImgSmall = value.ImgSmall,
+                        ImgSmallMed = value.ImgSmallMed,
+                        ImgMedium = value.ImgMedium,
+                        Length = value.Length,
+                        Ascent = value.Ascent,
+                        Descent = value.Descent,
+                        High = value.High,
+                        Low = value.Low,
+                        Longitude = value.Longitude,
+                        Latitude = value.Latitude,
+                        ConditionStatus = value.ConditionStatus,
+                        ConditionDetails = value.ConditionDetails,
+                        ConditionDate = value.ConditionDate
+                    });
+
+                }
+            
                 
 
 

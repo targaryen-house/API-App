@@ -12,6 +12,7 @@ using API_SwitchBack.Models.Interfaces;
 using System.Net.Http;
 using Newtonsoft.Json;
 using static API_SwitchBack.Models.Bing;
+using API_SwitchBack.Models.Services;
 
 namespace API_SwitchBack.Controllers
 {
@@ -44,10 +45,13 @@ namespace API_SwitchBack.Controllers
 
                     var stringResult = await response.Content.ReadAsStringAsync();
                     BingRootobject rawData = JsonConvert.DeserializeObject<BingRootobject>(stringResult);
-                    var coords = rawData.resourceSets[0].resources[0].point.coordinates;
+                    var coords1 = rawData.resourceSets[0].resources[0].point.coordinates;
+                    var coords2 = rawData.resourceSets[1].resources[1].point.coordinates;
+                    GetTrailsService service = new GetTrailsService();
+                    service.CreateTrailsSearch(coords1[0], coords2[0]);
 
-                
-              
+
+
             }
 
         } 
