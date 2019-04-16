@@ -30,14 +30,13 @@ namespace API_SwitchBack.Controllers
         [HttpGet]
         public async void CreateBing(string query)
         {
-            
             int maxResults = 100;
             string http = "http";
             string url = $"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BingAPIKEY"]}";
+
             _context.CreateBingSearch(url);
             using (var client = new HttpClient())
             {
-                
                     client.BaseAddress = new Uri("http://dev.virtualearth.net");
                     var response = await client.GetAsync($"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BingAPIKEY"]}");
                     response.EnsureSuccessStatusCode();
@@ -46,10 +45,7 @@ namespace API_SwitchBack.Controllers
                     BingRootobject rawData = JsonConvert.DeserializeObject<BingRootobject>(stringResult);
                     var coords = rawData.resourceSets[0].resources[0].point.coordinates;
 
-                
-              
             }
-
         } 
     }
 }
