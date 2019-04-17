@@ -21,15 +21,20 @@ namespace API_SwitchBack.Controllers
     public class BingController : Controller
     {
         private IBingManager _context;
+        private IGetTrails _getTrails;
+        private ITrail _trail;
         private readonly IConfiguration Configuration;
-        public BingController(IBingManager context, IConfiguration configuration)
+        public BingController(IBingManager context, IConfiguration configuration, IGetTrails trailContext, ITrail trail)
         {
             _context = context;
             Configuration = configuration;
+            _getTrails = trailContext;
+            _trail = trail;
         }
 
+
         [HttpGet]
-        public async void Get(string query)
+        public async Task<IEnumerable<Trail>> Get(string query)
         {
             
             int maxResults = 100;
@@ -47,13 +52,23 @@ namespace API_SwitchBack.Controllers
                     BingRootobject rawData = JsonConvert.DeserializeObject<BingRootobject>(stringResult);
                     var coords1 = rawData.resourceSets[0].resources[0].point.coordinates[0];
                     var coords2 = rawData.resourceSets[0].resources[0].point.coordinates[1];
-                    GetTrailsService service = new GetTrailsService();
-                    service.CreateTrailsSearch(coords1, coords2);
-                GetTrailsDataController dataController = new GetTrailsDataController();
-                dataController.Create(rawData);
+                    var rObject = _getTrails.CreateTrailsSearch(coords1, coords2);
 
+                // add rObject to db
+                 _trail.Create(rObject);
+                var trailk = _trail.GetAll();
+                /*var output = from t in trailk
+                             where (t.Location.Contains(query))
+                             select t;
+                             */
 
+                //query db
+                //send query results back to user
+                //return output;
 
+                return null;
+                //call iTralData to make a create to add to db
+                
             }
 
         } 

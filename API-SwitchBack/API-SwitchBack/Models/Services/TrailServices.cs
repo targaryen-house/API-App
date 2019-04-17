@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using System.Linq;
+using System.Collections.Immutable;
 
 namespace API_SwitchBack.Models.Service
 {
@@ -27,32 +28,33 @@ namespace API_SwitchBack.Models.Service
         /// </summary>
         /// <param name="trailInfo">TrailInfo row</param>
         /// <returns></returns>
+        public async void Create(Rootobject rObject)
+        {
+            foreach (var value in rObject.trails)
+            {
+                
+               await AddTrail(value);
+
+            }
+           
+        }
         public async Task AddTrail(Trail trail)
         {
-            _context.Trail.Add(trail);
-            await _context.SaveChangesAsync();
-        }
+          
+                _context.Trail.Add(trail);
+                await _context.SaveChangesAsync();
 
-        /// <summary>
-        /// (Create) Adds a Trail to the database
-        /// </summary>
-        /// <param name="trailInfo">TrailInfo row</param>
-        /// <returns></returns>
-        public async Task CreateTrails(Trail trail, Rootobject)
-        {
-            foreach (trail in trails)
-            {
-                AddTrail(trail);
-            }
+            
         }
 
         /// <summary>
         /// (Read) Gets all the Trail rows
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Trail> GetAll()
+        public async Task<IEnumerable<Trail>> GetAll()
         {
-            return _context.Trail;
+            return await _context.Trail.ToListAsync();
+                
         }
 
         /// <summary>

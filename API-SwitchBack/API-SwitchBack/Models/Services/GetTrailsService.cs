@@ -8,13 +8,14 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace API_SwitchBack.Models.Services
 {
     public class GetTrailsService : IGetTrails
 
     {
-        public void CreateTrailsSearch(float latitude,float longitude)
+        public Rootobject CreateTrailsSearch(float latitude,float longitude)
         {
             string url = $"https://www.hikingproject.com/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
             WebRequest requestData = WebRequest.Create(url);
@@ -29,6 +30,11 @@ namespace API_SwitchBack.Models.Services
                 tempString = sr.ReadToEnd();
                 sr.Close();
             }
+            Rootobject rawData = JsonConvert.DeserializeObject<Rootobject>(tempString);
+            return rawData;
+
+
+
         }
     }
 }

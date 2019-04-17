@@ -20,7 +20,7 @@ namespace API_SwitchBack.Models
         [JsonProperty("difficulty")]
         public string Difficulty { get; set; }
         [JsonProperty("stars")]
-        public float Stars { get; set; }
+        public double Stars { get; set; }
         [JsonProperty("starVotes")]
         public int StarVotes { get; set; }
         [JsonProperty("location")]
@@ -36,7 +36,7 @@ namespace API_SwitchBack.Models
         [JsonProperty("imgMedium")]
         public string ImgMedium { get; set; }
         [JsonProperty("length")]
-        public float Length { get; set; }
+        public double Length { get; set; }
         [JsonProperty("ascent")]
         public int Ascent { get; set; }
         [JsonProperty("descent")]
@@ -46,9 +46,9 @@ namespace API_SwitchBack.Models
         [JsonProperty("low")]
         public int Low { get; set; }
         [JsonProperty("longitude")]
-        public float Longitude { get; set; }
+        public double Longitude { get; set; }
         [JsonProperty("latitude")]
-        public float Latitude { get; set; }
+        public double Latitude { get; set; }
         [JsonProperty("conditionStatus")]
         public string ConditionStatus { get; set; }
         [JsonProperty("conditionDetails")]

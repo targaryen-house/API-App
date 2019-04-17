@@ -14,7 +14,7 @@ namespace API_SwitchBack.Models.Services
 {
     public class BingService : IBingManager
     {
-        public void CreateBingSearch(string url)
+        public string CreateBingSearch(string url)
         {
             WebRequest requestData = WebRequest.Create(url);
             requestData.Method = "GET";
@@ -28,8 +28,7 @@ namespace API_SwitchBack.Models.Services
                 tempString = sr.ReadToEnd();
                 sr.Close();
             }
-
-
+            return tempString;
         }
     }
 }

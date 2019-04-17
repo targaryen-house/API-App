@@ -20,7 +20,7 @@ namespace API_SwitchBack.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GetTrailsDataController : ControllerBase, IEnumerable
+    public class GetTrailsDataController : ControllerBase
     {
         
         private SwitchbackAPIDbContext _context;
@@ -31,67 +31,22 @@ namespace API_SwitchBack.Controllers
             Configuration = configuration;
         }
 
-        /*
-        [HttpGet]
-        public async Task Create(Trail trail)
-        {
-            GetEnumerator(trail);
-            float count = trail.Length;
-            //string http = "https://www.hikingproject.com/data";
-            //string url = $"{http}/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
-            using (var client = new HttpClient())
-            {
-
-
-                foreach (var value in trail)
-                {
-                    _context.Add(
-                    new Trail
-                    {
-                        ID = value.ID,
-                        Name = value.Name,
-                        Type = value.Type,
-                        Summary = value.Summary,
-                        Difficulty = value.Difficulty,
-                        Stars = value.Stars,
-                        StarVotes = value.StarVotes,
-                        Location = value.Location,
-                        Url = value.Url,
-                        ImgSqSmall = value.ImgSqSmall,
-                        ImgSmall = value.ImgSmall,
-                        ImgSmallMed = value.ImgSmallMed,
-                        ImgMedium = value.ImgMedium,
-                        Length = value.Length,
-                        Ascent = value.Ascent,
-                        Descent = value.Descent,
-                        High = value.High,
-                        Low = value.Low,
-                        Longitude = value.Longitude,
-                        Latitude = value.Latitude,
-                        ConditionStatus = value.ConditionStatus,
-                        ConditionDetails = value.ConditionDetails,
-                        ConditionDate = value.ConditionDate
-                    });
-
-
-                }
-
-
-
-
-
-            }
-
-
-        }
-        */
-
-        /*
-        [HttpGet]
+       /* [HttpGet]
         public async Task Create(Rootobject rObject)
         {
+
+
+
+
+            //GetEnumerator(rObject);
+
+
+            // https://www.hikingproject.com/data/get-trails?lat=47.4989852&lon=-122.0082429&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee
+
             GetEnumerator(rObject);
+
             int count = rObject.trails.Length;
+
             //string http = "https://www.hikingproject.com/data";
             //string url = $"{http}/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
             using (var client = new HttpClient())
@@ -138,20 +93,8 @@ namespace API_SwitchBack.Controllers
             }
 
          
-        }
-        */
-        public IEnumerator GetEnumerator(Rootobject rObject)
-        {
-            for (int i = 0; i < rObject.trails.Length; i++)
-            {
-                yield return [i];
-            }
-        }
+        }*/
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
 
     }
 }

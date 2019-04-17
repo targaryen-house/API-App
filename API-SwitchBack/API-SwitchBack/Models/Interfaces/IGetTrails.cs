@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace API_SwitchBack.Models.Interfaces
 {
-    interface IGetTrails
+    public interface IGetTrails
     {
-        void CreateTrailsSearch(float latitude, float longitude);
+        Rootobject CreateTrailsSearch(float latitude, float longitude);
+
+        
     }
 }
