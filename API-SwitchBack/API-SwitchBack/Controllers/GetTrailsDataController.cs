@@ -20,7 +20,7 @@ namespace API_SwitchBack.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GetTrailsDataController : ControllerBase, IEnumerable
+    public class GetTrailsDataController : ControllerBase
     {
         
         private SwitchbackAPIDbContext _context;
@@ -31,13 +31,20 @@ namespace API_SwitchBack.Controllers
             Configuration = configuration;
         }
 
-        [HttpGet]
+       /* [HttpGet]
         public async Task Create(Rootobject rObject)
         {
+
+
+
+
+            //GetEnumerator(rObject);
+
 
             // https://www.hikingproject.com/data/get-trails?lat=47.4989852&lon=-122.0082429&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee
 
             GetEnumerator(rObject);
+
             int count = rObject.trails.Length;
 
             //string http = "https://www.hikingproject.com/data";
@@ -86,19 +93,8 @@ namespace API_SwitchBack.Controllers
             }
 
          
-        }
-        public IEnumerator GetEnumerator(Rootobject rObject)
-        {
-            for (int i = 0; i < rObject.trails.Length; i++)
-            {
-                yield return [i];
-            }
-        }
+        }*/
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
 
     }
 }
