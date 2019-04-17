@@ -2,6 +2,8 @@
 
 # --------UNDER DEVELOPMENT-------- #
 
+# Switchback #
+
 ## **["Venture Into The Known"](https://switchback.azurewebsites.net/)**
 
 ## Developers ##
@@ -15,7 +17,6 @@
 - [Michael *"The Wizard"* Kelly](https://github.com/Michael-S-Kelly)
 
 - [Tanner *"SKNY-TannMann"* Percival](https://github.com/Tanner253)
-
 
 ## About Switchback ##
 ### Version 1.0 ###
@@ -34,20 +35,12 @@
 
 - [X] MVC Framework
 
-- [] --------UNDER DEVELOPMENT--------
-
-- [] ---------UNDER DEVELOPMENT-------
-
-- [] --------UNDER DEVELOPMENT--------
-
-- [] --------UNDER DEVELOPMENT--------
-
-- [] --------UNDER DEVELOPMENT--------
+   - [] --------UNDER DEVELOPMENT--------
 
 - API's
-- [] --------UNDER DEVELOPMENT--------
+- [X] [Switchback API](https://github.com/targaryen-house/API-App)
 
-- [] --------UNDER DEVELOPMENT--------
+- [X] [OpenWeather](https://openweathermap.org/api)
 
 ### How to set up locally ###
 
