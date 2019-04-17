@@ -31,9 +31,9 @@ namespace API_SwitchBack.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult<IEnumerable<Trail>> Get()
+        public async Task<IEnumerable<Trail>> Get()
         {
-            return _trail.GetAll().ToList();
+            return await _trail.GetAll();
         }
 
         /// <summary>

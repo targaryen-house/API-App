@@ -9,11 +9,13 @@ namespace API_SwitchBack.Models.Interfaces
 {
     public interface ITrail
     {
-        IEnumerable<Trail> GetAll();
+        Task<IEnumerable<Trail>> GetAll();
 
         Trail GetByID(int id);
 
-        Task AddTrail(Trail trailInfo);
+        void Create(Rootobject rObject);
+
+        Task AddTrail(Trail trail);
 
         Task EditTrail(int id, Trail trailInfo);
 
