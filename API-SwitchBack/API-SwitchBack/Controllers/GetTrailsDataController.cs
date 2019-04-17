@@ -37,11 +37,16 @@ namespace API_SwitchBack.Controllers
 
 
 
+
             //GetEnumerator(rObject);
 
 
+            // https://www.hikingproject.com/data/get-trails?lat=47.4989852&lon=-122.0082429&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee
+
+            GetEnumerator(rObject);
 
             int count = rObject.trails.Length;
+
             //string http = "https://www.hikingproject.com/data";
             //string url = $"{http}/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
             using (var client = new HttpClient())
