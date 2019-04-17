@@ -27,10 +27,23 @@ namespace API_SwitchBack.Models.Service
         /// </summary>
         /// <param name="trailInfo">TrailInfo row</param>
         /// <returns></returns>
-        public async Task AddTrail(Trail trailInfo)
+        public async Task AddTrail(Trail trail)
         {
-            _context.Trail.Add(trailInfo);
+            _context.Trail.Add(trail);
             await _context.SaveChangesAsync();
+        }
+
+        /// <summary>
+        /// (Create) Adds a Trail to the database
+        /// </summary>
+        /// <param name="trailInfo">TrailInfo row</param>
+        /// <returns></returns>
+        public async Task CreateTrails(Trail trail, Rootobject)
+        {
+            foreach (trail in trails)
+            {
+                AddTrail(trail);
+            }
         }
 
         /// <summary>

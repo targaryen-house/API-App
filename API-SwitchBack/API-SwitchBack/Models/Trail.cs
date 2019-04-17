@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -56,6 +57,18 @@ namespace API_SwitchBack.Models
         public string ConditionDate { get; set; }
 
         public ICollection<UserRatings> UserRatings { get; set; }
+
+        private List<Trail> trail;
+
+        public IEnumerator<Trail> GetEnumerator()
+        {
+            return trail.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return trail.GetEnumerator();
+        }
 
     }
 }
