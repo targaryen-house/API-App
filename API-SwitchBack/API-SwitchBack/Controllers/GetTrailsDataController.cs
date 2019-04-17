@@ -12,13 +12,17 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
+using System.Collections;
+using System.Threading;
+using System.Runtime.ConstrainedExecution;
 
 namespace API_SwitchBack.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GetTrailsDataController : ControllerBase
+    public class GetTrailsDataController : ControllerBase, IEnumerable
     {
+        
         private SwitchbackAPIDbContext _context;
         private readonly IConfiguration Configuration;
         public GetTrailsDataController(SwitchbackAPIDbContext context, IConfiguration configuration)
@@ -28,21 +32,21 @@ namespace API_SwitchBack.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create(float longitude, float latitude)
+        public async Task Create(Rootobject rObject)
         {
+
             // https://www.hikingproject.com/data/get-trails?lat=47.4989852&lon=-122.0082429&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee
+
+            GetEnumerator(rObject);
+            int count = rObject.trails.Length;
+
             //string http = "https://www.hikingproject.com/data";
             //string url = $"{http}/data/get-trails?lat={latitude}&lon={longitude}&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee";
             using (var client = new HttpClient())
             {
 
-                client.BaseAddress = new Uri("https://www.hikingproject.com");
-                var response = await client.GetAsync($"https://www.hikingproject.com/data/get-trails?lat=47.6062&lon=-122.3321&maxDistance=10&key=200422226-db1edfb53bd53e0ee7842110ac51bbee");
-                response.EnsureSuccessStatusCode();
-
-                var stringResult = await response.Content.ReadAsStringAsync();
-                Rootobject rawData = JsonConvert.DeserializeObject<Rootobject>(stringResult);
-                foreach (var value in rawData.trails)
+                
+                foreach (var value in rObject)
                 {
                     _context.Add(
                     new Trail
@@ -71,6 +75,7 @@ namespace API_SwitchBack.Controllers
                         ConditionDetails = value.ConditionDetails,
                         ConditionDate = value.ConditionDate
                     });
+                    
 
                 }
             
@@ -80,7 +85,20 @@ namespace API_SwitchBack.Controllers
 
             }
 
-           return null;
+         
         }
+        public IEnumerator GetEnumerator(Rootobject rObject)
+        {
+            for (int i = 0; i < rObject.trails.Length; i++)
+            {
+                yield return [i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
     }
 }

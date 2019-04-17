@@ -14,8 +14,7 @@ using System.Threading.Tasks;
 
 
 using Microsoft.AspNetCore.Http;
-
-
+using API_SwitchBack.Models.Services;
 
 namespace API_SwitchBack
 {
@@ -38,7 +37,8 @@ namespace API_SwitchBack
 
             services.AddDbContext<SwitchbackAPIDbContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-
+            services.AddScoped<IBingManager, BingService>();
+            services.AddScoped<IGetTrails, GetTrailsService>();
             //DefaultConnection
             //ProdutionConnection
         }
