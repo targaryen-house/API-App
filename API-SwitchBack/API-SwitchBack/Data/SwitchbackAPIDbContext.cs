@@ -22,7 +22,6 @@ namespace API_SwitchBack.Data
             modelBuilder.Entity<Trail>().HasData(
 
              new Trail
-
              {
 
                  ID = 7005406,
@@ -49,7 +48,36 @@ namespace API_SwitchBack.Data
                  ConditionDetails = "Dry",
                  ConditionDate = "2019-03-28 11:05:03"
 
-             });
+             },
+             new Trail
+             {
+
+                 ID = 7027304,
+                 Name = "Cougar Mountain Red Town Loop",
+                 Type = "Featured Hike",
+                 Summary = "This well-maintained rolling loop is a treat just minutes from Seattle.",
+                 Difficulty = "greenBlue",
+                 Stars = 4.4,
+                 StarVotes = 24,
+                 Location = "Newcastle, Washington",
+                 Url = "https://www.hikingproject.com/trail/7027304/cougar-mountain-red-town-loop",
+                 ImgSqSmall = "https://cdn-files.apstatic.com/hike/7031970_sqsmall_1554932139.jpg",
+                 ImgSmall = "https://cdn-files.apstatic.com/hike/7031970_small_1554932139.jpg",
+                 ImgSmallMed = "https://cdn-files.apstatic.com/hike/7031970_smallMed_1554932139.jpg",
+                 ImgMedium = "https://cdn-files.apstatic.com/hike/7031970_medium_1554932139.jpg",
+                 Length = 5.1,
+                 Ascent = 690,
+                 Descent = -676,
+                 High = 1278,
+                 Low = 676,
+                 Longitude = -122.1286,
+                 Latitude = 47.5346,
+                 ConditionStatus = "All Clear",
+                 ConditionDetails = "Mostly Dry: Snow free",
+                 ConditionDate = "2019-04-02 00:00:00"
+
+             }
+             );
         }
         
 
