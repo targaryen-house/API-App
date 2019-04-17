@@ -28,7 +28,7 @@ namespace API_SwitchBack.Controllers
             Configuration = configuration;
         }
 
-        [HttpGet("{query}")]
+        [HttpGet]
         public async void Get(string query)
         {
             
@@ -36,19 +36,21 @@ namespace API_SwitchBack.Controllers
             string http = "http";
             string url = $"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BingAPIKEY"]}";
             _context.CreateBingSearch(url);
-            using (var client = new HttpClient())
+            using (var client = new HttpClient( ))
             {
                 
                     client.BaseAddress = new Uri("http://dev.virtualearth.net");
-                    var response = await client.GetAsync($"{http}://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BINGAPIKEY"]}");
+                    var response = await client.GetAsync($"http://dev.virtualearth.net/REST/v1/Locations?query={query}&maxResults={maxResults}&key={Configuration["BINGAPIKEY"]}");
                     response.EnsureSuccessStatusCode();
 
                     var stringResult = await response.Content.ReadAsStringAsync();
                     BingRootobject rawData = JsonConvert.DeserializeObject<BingRootobject>(stringResult);
-                    var coords1 = rawData.resourceSets[0].resources[0].point.coordinates;
-                    var coords2 = rawData.resourceSets[1].resources[1].point.coordinates;
+                    var coords1 = rawData.resourceSets[0].resources[0].point.coordinates[0];
+                    var coords2 = rawData.resourceSets[0].resources[0].point.coordinates[1];
                     GetTrailsService service = new GetTrailsService();
-                    service.CreateTrailsSearch(coords1[0], coords2[0]);
+                    service.CreateTrailsSearch(coords1, coords2);
+                GetTrailsDataController dataController = new GetTrailsDataController();
+                dataController.Create(rawData);
 
 
 
