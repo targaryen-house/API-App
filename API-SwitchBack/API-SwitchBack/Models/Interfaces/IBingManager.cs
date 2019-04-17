@@ -9,5 +9,6 @@ namespace API_SwitchBack.Models.Interfaces
     public interface IBingManager
     {
         void CreateBingSearch(string url);
+        
     }
 }
