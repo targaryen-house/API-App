@@ -51,6 +51,7 @@ namespace API_SwitchBack.Controllers
             }
             return Ok(trail);
         }
+        
 
         /// <summary>
         /// (Post) Posts a Trail
@@ -69,6 +70,7 @@ namespace API_SwitchBack.Controllers
                 await Put(trail.ApiID, trail);
             }
             return RedirectToAction("Get", new { id = trail.ApiID });
+
         }
 
         /// <summary>
@@ -100,8 +102,8 @@ namespace API_SwitchBack.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            _trail.RemoveTrail(id);
-            return Ok();
+           
+            return Ok(_trail.RemoveTrail(id));
         }
     }
 }
