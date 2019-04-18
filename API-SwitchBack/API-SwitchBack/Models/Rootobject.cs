@@ -9,7 +9,7 @@ namespace API_SwitchBack.Models
     public class Rootobject 
     {
         
-        public Trail[] trails { get; set; }
+        public GetTrails[] trails { get; set; }
         public int success { get; set; }
 
         /*private List<Rootobject> rootobjects;
