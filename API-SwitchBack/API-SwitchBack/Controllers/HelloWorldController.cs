@@ -12,6 +12,7 @@ namespace API_SwitchBack.Controllers
     public class HelloWorldController : ControllerBase
     {
         [HttpGet]
+        
         public ActionResult<string> Get()
         {
             return "Hello World";

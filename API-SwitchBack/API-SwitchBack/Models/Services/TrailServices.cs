@@ -32,7 +32,7 @@ namespace API_SwitchBack.Models.Service
         {
             foreach (var value in rObject.trails)
             {
-                
+                  
                await AddTrail(value);
 
             }
@@ -63,7 +63,7 @@ namespace API_SwitchBack.Models.Service
             var output2 = from t in output
                          where (t.Location.Contains(query))
                          select t;
-            return output;
+            return output2;
                 
         }
 
