@@ -31,9 +31,9 @@ namespace API_SwitchBack.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IEnumerable<Trail>> Get()
+        public async Task<IEnumerable<Trail>> Get(string query)
         {
-            return await _trail.GetAll();
+            return await _trail.GetAll(query);
         }
 
         /// <summary>
@@ -60,15 +60,15 @@ namespace API_SwitchBack.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Trail trail)
         {
-            if (trail.ID <= 0)
+            if (trail.ApiID <= 0)
             {
                 await _trail.AddTrail(trail);
             }
             else
             {
-                await Put(trail.ID, trail);
+                await Put(trail.ApiID, trail);
             }
-            return RedirectToAction("Get", new { id = trail.ID });
+            return RedirectToAction("Get", new { id = trail.ApiID });
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace API_SwitchBack.Controllers
             {
                 await Post(trailInfo);
             }
-            return RedirectToAction("Get", new { id = trailInfo.ID });
+            return RedirectToAction("Get", new { id = trailInfo.ApiID });
         }
 
         /// <summary>

@@ -9,18 +9,8 @@ namespace API_SwitchBack.Models.Services
 {
     public class RootObjectService : IRootObject
     {
-        private List<RootObjectService> rootObjects;
-
-
-        IEnumerator<Rootobject> IRootObject.GetEnumerator()
-        {
-            return rootObjects.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return rootObjects.GetEnumerator();
-        }
+       
+     
 
         
     }

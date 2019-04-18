@@ -9,10 +9,8 @@ namespace API_SwitchBack.Models.Interfaces
 {
     public interface IRootObject
     {
-        IEnumerator<Rootobject> GetEnumerator();
 
         
     }
 }
 
-// https://stackoverflow.com/questions/15159014/c-sharp-foreach-statement-does-not-contain-public-definition-for-getenumerator
