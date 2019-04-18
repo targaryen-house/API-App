@@ -69,7 +69,7 @@ namespace API_SwitchBack.Controllers
             {
                 await Put(trail.ApiID, trail);
             }
-            return RedirectToAction("Get", new { id = trail.ApiID });
+            return Ok(RedirectToAction("Get", new { id = trail.ApiID }));
 
         }
 
@@ -91,7 +91,7 @@ namespace API_SwitchBack.Controllers
             {
                 await Post(trailInfo);
             }
-            return RedirectToAction("Get", new { id = trailInfo.ApiID });
+            return Ok(RedirectToAction("Get", new { id = trailInfo.ApiID }));
         }
 
         /// <summary>
