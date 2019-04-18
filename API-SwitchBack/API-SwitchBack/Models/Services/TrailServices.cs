@@ -31,12 +31,9 @@ namespace API_SwitchBack.Models.Service
         /// <returns></returns>
         public async Task Create(Rootobject rObject)
         {
-            var get = rObject.trails;
+            /*var get = rObject.trails;
             var trail = await _context.Trail.ToListAsync();
-            //IEnumerable<object> trailQuery = from t in trailing
-            //                                 where t.ApiID != 0
-            //                                 select t;
-
+           
             foreach (var value in rObject.trails)
             {
                 foreach (var item in trail)
@@ -46,8 +43,11 @@ namespace API_SwitchBack.Models.Service
                 }
     
 
+            }*/
+            foreach (var value in rObject.trails)
+            {
+                await AddTrail(value);
             }
-           
         }
 
         private async Task AddTrail(GetTrails value)

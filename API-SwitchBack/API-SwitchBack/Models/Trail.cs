@@ -9,7 +9,8 @@ namespace API_SwitchBack.Models
 {
     public class Trail
     {
-        public int TrailID { get; set; } = 0;
+        [JsonProperty("TrailID")]
+        public int TrailID { get; set; } 
         [JsonProperty("id")]
         public int ApiID { get; set; }
         [JsonProperty("name")]

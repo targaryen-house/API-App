@@ -102,8 +102,8 @@ namespace API_SwitchBack.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            _trail.RemoveTrail(id);
-            return Ok();
+           
+            return Ok(_trail.RemoveTrail(id));
         }
     }
 }
