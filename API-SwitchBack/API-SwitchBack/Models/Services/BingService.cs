@@ -14,6 +14,12 @@ namespace API_SwitchBack.Models.Services
 {
     public class BingService : IBingManager
     {
+
+        /// <summary>
+        /// calls to bing to recieve root object
+        /// </summary>
+        /// <param name="url">the api call wit h query and key</param>
+        /// <returns>bing root obj</returns>
         public string CreateBingSearch(string url)
         {
             WebRequest requestData = WebRequest.Create(url);

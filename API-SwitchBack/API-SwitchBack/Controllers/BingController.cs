@@ -55,18 +55,18 @@ namespace API_SwitchBack.Controllers
                     var rObject = _getTrails.CreateTrailsSearch(coords1, coords2);
 
                 // add rObject to db
-                 _trail.Create(rObject);
-                var trailk = _trail.GetAll();
-                /*var output = from t in trailk
-                             where (t.Location.Contains(query))
-                             select t;
-                             */
+                await _trail.Create(rObject);
+                var trailk = _trail.GetAll(query);
+                //var output = from t in trailk
+                //             where (t.Location.Contains(query))
+                //             select t;
+                // var output2 = 
 
                 //query db
                 //send query results back to user
                 //return output;
 
-                return null;
+                return await trailk;
                 //call iTralData to make a create to add to db
                 
             }
