@@ -51,7 +51,7 @@ Are you tired of sitting around wondering where to go for a hike but cant rememe
 
 _________UNDER DEVELOPMENT_________
 
-### MVC User Stories ###
+### API & MVC User Stories ###
 
 - As a User, I want to be able to search for trails in a given area or by specific keywords.
    - Features
@@ -127,16 +127,11 @@ _________UNDER DEVELOPMENT_________
       - User submitted trails should return and display the same as any other trail in our API
       - User submitted trails should be marked with a unique icon to indicate they are user submitted
 
-### Web App Wireframe
-
-![Web App Wirefram](https://github.com/targaryen-house/MVC-App/blob/dev-branch/Assets/Switchback_WIREFRAME.png)
-
-
 ### Database Entity Relationship Diagram(ERD)
 
-Our web app will connect to a SQL database with two tables.  The first table will store User Names for all users.  The second table will store User Comments.  Each user will be required to select a name to display before they can access our second table.  All User Comments will be displayed on the individual details page for each hiking trail.
+Our API app will connect to a SQL database with two tables.  The first table will store Trails Information for all trails.  The second table will store User Ratings.  The API will accept a location and get a Latitude and Longitude from Bing.  It will then pull trail information from hiking project API.  It will then compare the received information to the pulled information on the database to reduce duplicates.  It will then send the information back to the querying website.  In addition, it will accept user edits to the trail information from a website as well as user ratings of individual trails.
 
-![Database ERD Diagram](https://github.com/targaryen-house/MVC-App/blob/dev-branch/Assets/WebApp_ERD.png)
+![Database ERD Diagram](Assets/API_ERD.PNG)
 
 
 ### API Endpoints and Call/Response Sample ###
@@ -144,32 +139,17 @@ Our web app will connect to a SQL database with two tables.  The first table wil
 - Example call From our API:
 
   - *Call to be made*: https://switchbackapi.azurewebsites.net/api/bing?query=Seattle
-
 *Returned data*
-- {
-   -        "TrailID": 3,        
-   -        "id": 7013499,
-   -        "name": "Discovery Park and Lighthouse Loop",
-   -         "type": "Featured Hike",
-   -         "summary": "An easy hike with views of Mt. Rainier from the West Point Lighthouse.",
-   -         "difficulty": "greenBlue",
-   -         "stars": 4.2,
-   -         "starVotes": 19,
-   -         "location": "Seattle, Washington",
-   -         "url": "https://www.hikingproject.com/trail/7013499/discovery-park-and-lighthouse-loop",
-   -         "imgSqSmall": "https://cdn-files.apstatic.com/hike/7055441_sqsmall_1548117690.jpg",
-   -         "imgSmall": "https://cdn-files.apstatic.com/hike/7055441_small_1548117690.jpg",
-   -         "imgSmallMed": "https://cdn-files.apstatic.com/hike/7055441_smallMed_1548117690.jpg",
-   -         "imgMedium": "https://cdn-files.apstatic.com/hike/7055441_medium_1548117690.jpg",
-   -         "length": 4,
-   -         "ascent": 406,
-   -         "descent": -405,
-   -         "high": 335,
-   -        "low": 10,
-   -         "longitude": -122.4081,
-   -         "latitude": 47.6586,
-   -         "conditionStatus": "All Clear",
-   -         "conditionDetails": "Some Mud",
-   -         "conditionDate": "2019-01-19 09:34:53",
-   -         "userRatings": null
-   -     },
+![Image 1](Assets/LocationSearchResponse.PNG)
+
+  - *Call to be made*: https://localhost:44308/api/Trail/1
+*Returned data*
+![Image 1](Assets/SearchTrail.PNG)
+
+Models
+
+![Image 1](Assets/TrailModel.PNG)
+
+![Image 1](Assets/UserRatingModel.PNG)
+
+
