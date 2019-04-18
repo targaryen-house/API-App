@@ -13,6 +13,7 @@ namespace API_SwitchBack.Models.Service
     public class TrailServices : ITrail
     {
         private SwitchbackAPIDbContext _context;
+        //private Rootobject.trails _getTrail;
 
         /// <summary>
         /// Connects Service to Database
@@ -30,13 +31,54 @@ namespace API_SwitchBack.Models.Service
         /// <returns></returns>
         public async Task Create(Rootobject rObject)
         {
+            var get = rObject.trails;
+            var trail = await _context.Trail.ToListAsync();
+            //IEnumerable<object> trailQuery = from t in trailing
+            //                                 where t.ApiID != 0
+            //                                 select t;
+
             foreach (var value in rObject.trails)
             {
-                  
-               await AddTrail(value);
+                foreach (var item in trail)
+                {
+                    if (item.ApiID != value.ID)
+                        await AddTrail(value);
+                }
+    
 
             }
            
+        }
+
+        private async Task AddTrail(GetTrails value)
+        {
+            Trail trail = new Trail();
+            trail.ApiID = value.ID;
+            trail.Name = value.Name;
+            trail.Type = value.Type;
+            trail.Summary = value.Summary;
+            trail.Difficulty = value.Difficulty;
+            trail.Stars = value.Stars;
+            trail.StarVotes = value.StarVotes;
+            trail.Location = value.Location;
+            trail.Url = value.Url;
+            trail.ImgSqSmall = value.ImgSqSmall;
+            trail.ImgSmall = value.ImgSmall;
+            trail.ImgSmallMed = value.ImgSmallMed;
+            trail.ImgMedium = value.ImgMedium;
+            trail.Length = value.Length;
+            trail.Ascent = value.Ascent;
+            trail.Descent = value.Descent;
+            trail.High = value.High;
+            trail.Low = value.Low;
+            trail.Longitude = value.Longitude;
+            trail.Latitude = value.Latitude;
+            trail.ConditionStatus = value.ConditionStatus;
+            trail.ConditionDetails = value.ConditionDetails;
+            trail.ConditionDate = value.ConditionDate;
+
+            _context.Trail.Add(trail);
+            await _context.SaveChangesAsync();
         }
 
         /// <summary>
