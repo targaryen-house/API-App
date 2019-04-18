@@ -36,7 +36,10 @@ namespace API_SwitchBack
 
 
             services.AddDbContext<SwitchbackAPIDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:ProdutionConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+
+            services.AddDbContext<SwitchbackAPIDbContext>(options =>
+            options.UseSqlServer(Configuration["BINGAPIKEY"]));
             services.AddScoped<IBingManager, BingService>();
             services.AddScoped<ITrail, TrailServices>();
             services.AddScoped<IGetTrails, GetTrailsService>();

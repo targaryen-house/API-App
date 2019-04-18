@@ -28,11 +28,11 @@ namespace API_SwitchBack.Models.Service
         /// </summary>
         /// <param name="trailInfo">TrailInfo row</param>
         /// <returns></returns>
-        public async void Create(Rootobject rObject)
+        public async Task Create(Rootobject rObject)
         {
             foreach (var value in rObject.trails)
             {
-                
+                  
                await AddTrail(value);
 
             }
@@ -57,9 +57,13 @@ namespace API_SwitchBack.Models.Service
         /// (Read) Gets all the Trail rows
         /// </summary>
         /// <returns></returns>
-        public async Task<IEnumerable<Trail>> GetAll()
+        public async Task<IEnumerable<Trail>> GetAll(string query)
         {
-            return await _context.Trail.ToListAsync();
+            var output = await _context.Trail.ToListAsync();
+            var output2 = from t in output
+                         where (t.Location.Contains(query))
+                         select t;
+            return output2;
                 
         }
 
@@ -83,7 +87,7 @@ namespace API_SwitchBack.Models.Service
         public async Task EditTrail(int id, Trail trailInfo)
         {
             Trail trail = GetByID(id);
-            trail.ID = id;
+            trail.ApiID = id;
             trail.Name = trail.Name;
             trail.Type = trail.Type;
             trail.Summary = trail.Summary;

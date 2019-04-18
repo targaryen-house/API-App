@@ -23,8 +23,8 @@ namespace API_SwitchBack.Data
 
              new Trail
              {
-
-                 ID = 7005406,
+                 TrailID = 1,
+                 ApiID = 7005406,
                  Name = "Poo Poo Point via Chirico Trail",
                  Type = "Featured Hike",
                  Summary = "A great place for a picnic and watching paragliders!",
@@ -51,8 +51,8 @@ namespace API_SwitchBack.Data
              },
              new Trail
              {
-
-                 ID = 7027304,
+                 TrailID = 2,
+                 ApiID = 7027304,
                  Name = "Cougar Mountain Red Town Loop",
                  Type = "Featured Hike",
                  Summary = "This well-maintained rolling loop is a treat just minutes from Seattle.",

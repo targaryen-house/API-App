@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace API_SwitchBack.Models
 {
-    public class Rootobject : IEnumerable<Rootobject>
+    public class Rootobject 
     {
         
         public Trail[] trails { get; set; }
         public int success { get; set; }
 
-        private List<Rootobject> rootobjects;
+        /*private List<Rootobject> rootobjects;
 
         public IEnumerator<Rootobject> GetEnumerator()
         {
@@ -22,6 +22,6 @@ namespace API_SwitchBack.Models
         IEnumerator IEnumerable.GetEnumerator()
         {
             return rootobjects.GetEnumerator();
-        }
+        }*/
     }
 }

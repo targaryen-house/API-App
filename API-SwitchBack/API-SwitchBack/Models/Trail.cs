@@ -9,8 +9,9 @@ namespace API_SwitchBack.Models
 {
     public class Trail
     {
+        public int TrailID { get; set; } = 0;
         [JsonProperty("id")]
-        public int ID { get; set; }
+        public int ApiID { get; set; }
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("type")]
@@ -60,7 +61,7 @@ namespace API_SwitchBack.Models
 
         private List<Trail> trail;
 
-        public IEnumerator<Trail> GetEnumerator()
+        /*public IEnumerator<Trail> GetEnumerator()
         {
             return trail.GetEnumerator();
         }
@@ -68,7 +69,7 @@ namespace API_SwitchBack.Models
         IEnumerator IEnumerable.GetEnumerator()
         {
             return trail.GetEnumerator();
-        }
+        }*/
 
     }
 }
