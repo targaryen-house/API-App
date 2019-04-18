@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using API_SwitchBack.Data;
 using API_SwitchBack.Models.Interfaces;
 using API_SwitchBack.Models.Service;
+using Swashbuckle.AspNetCore.Swagger;
 
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace API_SwitchBack
 
 
             services.AddDbContext<SwitchbackAPIDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:ProdutionConnection"]));
 
             services.AddDbContext<SwitchbackAPIDbContext>(options =>
             options.UseSqlServer(Configuration["BINGAPIKEY"]));
@@ -45,11 +46,25 @@ namespace API_SwitchBack
             services.AddScoped<IGetTrails, GetTrailsService>();
             //DefaultConnection
             //ProdutionConnection
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
