@@ -51,6 +51,7 @@ namespace API_SwitchBack.Controllers
             }
             return Ok(trail);
         }
+        
 
         /// <summary>
         /// (Post) Posts a Trail
@@ -69,6 +70,7 @@ namespace API_SwitchBack.Controllers
                 await Put(trail.ApiID, trail);
             }
             return RedirectToAction("Get", new { id = trail.ApiID });
+
         }
 
         /// <summary>

@@ -56,7 +56,6 @@ namespace API_SwitchBack
             }
             app.UseMvc();
 
-
         }
     }
 }
