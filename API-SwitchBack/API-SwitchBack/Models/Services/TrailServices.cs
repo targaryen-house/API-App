@@ -13,7 +13,6 @@ namespace API_SwitchBack.Models.Service
     public class TrailServices : ITrail
     {
         private SwitchbackAPIDbContext _context;
-        //private Rootobject.trails _getTrail;
 
         /// <summary>
         /// Connects Service to Database
@@ -28,7 +27,7 @@ namespace API_SwitchBack.Models.Service
         /// (Create) Adds a Trail to the database
         /// </summary>
         /// <param name="trailInfo">TrailInfo row</param>
-        /// <returns></returns>
+        /// <returns>Adds Trail to Database</returns>
         public async Task Create(Rootobject rObject)
         {
             var get = rObject.trails;
@@ -50,6 +49,11 @@ namespace API_SwitchBack.Models.Service
            
         }
 
+        /// <summary>
+        /// (Create) (Overload) Adds a Trail to the database
+        /// </summary>
+        /// <param name="trailInfo">GetTrails row</param>
+        /// <returns></returns>
         private async Task AddTrail(GetTrails value)
         {
             Trail trail = new Trail();
@@ -82,7 +86,7 @@ namespace API_SwitchBack.Models.Service
         }
 
         /// <summary>
-        /// (Create) Adds a Trail to the database
+        /// (Create) (Overload) Adds a Trail to the database
         /// </summary>
         /// <param name="trailInfo">TrailInfo row</param>
         /// <returns></returns>
