@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using API_SwitchBack.Data;
+using API_SwitchBack.Models;
 using API_SwitchBack.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,7 @@ namespace API_SwitchBack.Models.Service
         {
             foreach (var value in rObject.trails)
             {
-                
+               if (value.ID != _context.Trail.AP) 
                await AddTrail(value);
 
             }
