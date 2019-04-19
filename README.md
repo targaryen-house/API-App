@@ -131,8 +131,8 @@ _________UNDER DEVELOPMENT_________
 
 Our API app will connect to a SQL database with two tables.  The first table will store Trails Information for all trails.  The second table will store User Ratings.  The API will accept a location and get a Latitude and Longitude from Bing.  It will then pull trail information from hiking project API.  It will then compare the received information to the pulled information on the database to reduce duplicates.  It will then send the information back to the querying website.  In addition, it will accept user edits to the trail information from a website as well as user ratings of individual trails.
 
-![Database ERD Diagram](https://github.com/targaryen-house/API-App/blob/dev-branch/Assets/API_ERD.png)
 
+![Database ERD Diagram](https://github.com/targaryen-house/API-App/blob/dev-branch/Assets/API-ERD.png)
 
 ### API Endpoints and Call/Response Sample ###
 
