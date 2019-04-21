@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API-SwitchBack", "API-SwitchBack\API-SwitchBack.csproj", "{FD80BB8B-920E-4EFC-9E6D-2957812D1C59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API-SwitchBack_TDD", "API-SwitchBack_TDD\API-SwitchBack_TDD.csproj", "{A7CB24E8-928C-4F24-92CA-13F6F9B1F6CC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{FD80BB8B-920E-4EFC-9E6D-2957812D1C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD80BB8B-920E-4EFC-9E6D-2957812D1C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD80BB8B-920E-4EFC-9E6D-2957812D1C59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7CB24E8-928C-4F24-92CA-13F6F9B1F6CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7CB24E8-928C-4F24-92CA-13F6F9B1F6CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7CB24E8-928C-4F24-92CA-13F6F9B1F6CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7CB24E8-928C-4F24-92CA-13F6F9B1F6CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
