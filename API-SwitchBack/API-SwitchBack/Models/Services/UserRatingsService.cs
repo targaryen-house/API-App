@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using System.Linq;
 
-namespace API_SwitchBack.Models.Service
+namespace API_SwitchBack.Models.Services
 {
     public class UserRatingsService : IUserRatings
     {
