@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Immutable;
 
-namespace API_SwitchBack.Models.Service
+namespace API_SwitchBack.Models.Services
 {
     public class TrailServices : ITrail
     {
