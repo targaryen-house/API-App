@@ -11,6 +11,8 @@ namespace API_SwitchBack.Models.Interfaces
     {
         Task<IEnumerable<Trail>> GetAll(string query);
 
+        Task<Trail> GetByName(string query);
+
         Trail GetByID(int id);
 
         Task Create(Rootobject rObject);
