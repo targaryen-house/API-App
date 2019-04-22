@@ -112,6 +112,17 @@ namespace API_SwitchBack.Models.Service
             return output2;
                 
         }
+        public async Task<Trail> GetByName(string query)
+        {
+            var output = await _context.Trail.ToListAsync();
+            var output2 = from o in output
+                          where o.Name.Contains(query)
+                          select o;
+            var output3 = await _context.Trail.FirstOrDefaultAsync(t => t.Name == query);
+
+            return output3;
+
+        }
 
         /// <summary>
         /// (Read) Gets a Trail by ID

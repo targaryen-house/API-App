@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_SwitchBack.Migrations
 {
     [DbContext(typeof(SwitchbackAPIDbContext))]
-    [Migration("20190418211122_initial")]
+    [Migration("20190419155348_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

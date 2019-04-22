@@ -30,9 +30,11 @@ namespace API_SwitchBack.Controllers
         /// (Get) Get all Trail Rows
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<IEnumerable<Trail>> Get(string query)
+        [HttpGet(Name ="GetAll")]
+        public async Task<IEnumerable<Trail>> GetAll(string query)
         {
+
+
             return await _trail.GetAll(query);
         }
 
@@ -51,7 +53,21 @@ namespace API_SwitchBack.Controllers
             }
             return Ok(trail);
         }
-        
+
+        [HttpGet("{trailName}", Name = "GetTrail")]
+        public IActionResult GetTrail(string trailName)
+        {
+
+            var trail = _trail.GetByName(trailName);
+
+
+            if (trail == null)
+            {
+                return NotFound();
+            }
+            return Ok(trail);
+        }
+
 
         /// <summary>
         /// (Post) Posts a Trail
@@ -67,9 +83,9 @@ namespace API_SwitchBack.Controllers
             }
             else
             {
-                await Put(trail.ApiID, trail);
+                await Put(trail.TrailID, trail);
             }
-            return Ok(RedirectToAction("Get", new { id = trail.ApiID }));
+            return Ok(RedirectToAction("Get", new { id = trail.TrailID }));
 
         }
 
@@ -79,7 +95,7 @@ namespace API_SwitchBack.Controllers
         /// <param name="id">Trail ID</param>
         /// <param name="trail">Trail row</param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Trail trail)
         {
             Trail trailInfo = _trail.GetByID(id);
@@ -91,7 +107,7 @@ namespace API_SwitchBack.Controllers
             {
                 await Post(trailInfo);
             }
-            return Ok(RedirectToAction("Get", new { id = trailInfo.ApiID }));
+            return Ok(RedirectToAction("Get", new { id = trailInfo.TrailID }));
         }
 
         /// <summary>
@@ -102,7 +118,7 @@ namespace API_SwitchBack.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-           
+
             return Ok(_trail.RemoveTrail(id));
         }
     }
