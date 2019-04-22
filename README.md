@@ -26,7 +26,7 @@ Are you tired of sitting around wondering where to go for a hike but cant rememe
 
 ## Libraries/API's/Dev environments-Dev Tools
 
-- Libraries
+- Dev Tools
    - [X] VS Community
 
    - [X] Azure/DevOps
@@ -37,19 +37,13 @@ Are you tired of sitting around wondering where to go for a hike but cant rememe
 
    - [X] Bootstrap CSS
 
+   - [Swagger](https://switchbackapi.azurewebsites.net/index.html)
 
 - API's
-   - [X] [In house Switchback API](https://github.com/targaryen-house/API-App)
+   - [X] [In house Switchback API](https://switchbackapi.azurewebsites.net/index.html)
 
    - [X] [OpenWeather](https://openweathermap.org/api)
 
-
-### How to set up locally ###
-
-- Clone the repository onto your machine
-   - Once Repo is cloned and set up within ```VS Community``` 
-
-_________UNDER DEVELOPMENT_________
 
 ### API & MVC User Stories ###
 
