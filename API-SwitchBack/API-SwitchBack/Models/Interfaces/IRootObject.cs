@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace API_SwitchBack.Models.Interfaces
 {
+    /// <summary>
+    /// object given from query from GettrailsAPi
+    /// </summary>
     public interface IRootObject
     {
 
